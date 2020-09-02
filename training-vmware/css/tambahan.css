@@ -1,0 +1,102 @@
+@import 'https://fonts.googleapis.com/css?family=Bungee+Shade';
+@import 'https://fonts.googleapis.com/css?family=Yatra+One';
+@font-face {font-family: inversionz; src: url(font/inversionz.otf);}
+@font-face {font-family: OpenSans; src:url(font/OpenSans.ttf);}
+
+.fontkepala  {
+    font-family: 'Yatra One';
+}
+
+.share-reveal a {
+  display: inline-block;
+  height: 34px;
+  line-height: 32px;
+  padding: 0 10px;
+  color: #3884B9;
+  font-family: Helvetica, sans-serif;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 12px;
+  vertical-align: top;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+
+.share-reveal .share-reveal-editor {
+  line-height: 30px;
+}
+
+.share-reveal svg {
+  vertical-align: middle;
+}
+
+.share-reveal a + a {
+  margin-left: 10px;
+}
+
+.share-reveal-editor {
+  border: 2px solid #3884B9;
+}
+
+.share-reveal-twitter,
+.share-reveal-follow {
+  background-color: #00aced;
+}
+
+.share-reveal-facebook {
+  background-color: #4B71B8;
+}
+
+
+#judul-section {
+  font-family: 'inversionz';
+  font-weight: normal;
+}
+
+#judul-section2 {
+  color: #34495e;
+  font-size: 45px;
+}
+
+#judul-section1 {
+  font-family: 'inversionz';
+  color: #34495e;
+  font-weight: normal;
+}
+
+.paragrap {
+  font-size:30px;
+  font-family: Open Sans;
+}
+
+.paragrap2 {
+  font-size:30px;
+  font-family: Open Sans;
+  color:#34495e;
+}
+
+#foto {
+  border: 0px;
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0.15);
+}
+
+#blockquote-fixed {
+  padding:50px;
+  width: 1000px;
+}
+
+/*  PERKENALAN */
+.kosong3satu {
+  font-weight:bold;
+  color:#3884B9;
+}
+
+.kosong3dua {
+  width:500px;
+}
+
+/* PESANTREN */
+.pesantren1 {
+  font-size: 20px;
+}

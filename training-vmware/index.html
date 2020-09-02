@@ -1,0 +1,781 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Pesantren Mengajar - VMware vSphere Virtualization</title>
+
+				<!-- TAMBAHAN -->
+				<link rel="stylesheet" href="css/tambahan.css" type="text/css">
+
+				<!--- BOOTSTRAP -->
+				<link rel="stylesheet" href="css/bootstrap.css">
+				<script src="js/bootstrap.min.js"></script>
+
+				<!-- FONT AWESOME -->
+				<link rel="stylesheet" href="css/fa/css/font-awesome.min.css">
+
+				<!-- ASLI -->
+				<link rel="stylesheet" href="css/reveal.css">
+				<link rel="stylesheet" href="css/theme/black.css">
+
+
+
+        <style>
+            @font-face {font-family: inversionz; src: url(font/sketch.ttf);}
+            p {
+                font-family:inversionz;
+            }
+        </style>
+		<!-- Theme used for syntax highlighting of -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!--- 01. SALAM --->
+				<section>
+                    <h1 style="font-size:60px; font-family: 'Bungee Shade';font-decoration:bold;">السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</h1>
+                        <p><small style="font-size:30px;">(assalamualaikum warahmatullahi wabarakatuh)</small></p>
+                </section>
+
+				<!--- 02. VMWARE --->
+                <section>
+                    <section data-background-image="material/vmware-wallphd.png">
+											<h1 id="judul-section" style="color:#34495e">VMware vSphere</h1>
+										</section>
+                </section>
+
+				<!--- 03. PERKENALAN --->
+                <section>
+												<div class="col-md-4">
+														<img src="material/profile.jpg" alt="ini foto gue" class="img-circle">
+												</div>
+												<div class="col-md-8 table-responsive">
+														<table style="width:550px;">
+														<tr>
+															<td class="kosong3dua" style="text-align: center;">Fauzan A. Noor</td>
+														</tr>
+														<tr>
+															<td class="kosong3dua" style="text-align: center;">Pesantren Sysadmin</td>
+														</tr>
+														<tr>
+															<td class="kosong3dua"><i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp; +62 857 7686 9911</td>
+														</tr>
+														<tr>
+															<td class="kosong3dua"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp; fauzanooor@gmail.com</td>
+														</tr>
+														<tr>
+															<td class="kosong3dua" style="text-align: center;">https://fauzanooor.id</td>
+														</tr>
+													</table>
+												</div>
+                </section>
+
+								<!--- 03. PESANTREN IDN --->
+								<section>
+                        <section data-background-image="">
+														<h1 id="judul-section">Pesantren IDN ?</h1>
+												</section>
+
+                        <section>
+													<h3 class="fragment">IDN = <span class="fragment">Integrasi Data Nusantara</span></h3>
+													<p class="fragment pesantren1">oleh <span class="fragment">Pak Dedi Gunawan</span></p>
+													<p class="fragment pesantren1">tahun <span class="fragment">2008</span></p>
+													<img data-src="material/id-networkers.png" class="fragment" style="background-color:white;"> <img data-src="material/imastudio.png" class="fragment" style="background-color:white;"> <img data-src="material/vschool.jpg" class="fragment" style="background-color:white;"><br/>
+													<img data-src="material/smk.png" class="fragment" style="background-color:white;">
+												</section>
+
+												<section>
+													<h3 class="fragment">IDN Foundation</h3>
+													<p class="fragment pesantren1">oleh <span class="fragment">Pak Rofiq Fauzi</span></p>
+													<p class="fragment pesantren1">tahun <span class="fragment">2013</span></p>
+													<ol>
+														<li class="fragment">Untuk anak SD-SMP (10 - 15 tahun)</li>
+														<li class="fragment">Untuk anak SMK (16 - 19 tahun)</li>
+														<li class="fragment">Untuk anak kuliahan (18 - 22 tahun)</li>
+														<li class="fragment">Untuk guru - guru SMK</li>
+														<li class="fragment">Untuk dosen</li>
+													</ol>
+												</section>
+
+												<section>
+													<h1 id="judul-section">Pesantren IDN</h1>
+													<ol>
+														<li class="fragment">Pesantren Networkers</li>
+														<li class="fragment">Pesantren Programmer</li>
+														<li class="fragment">Pesantren Networkers CCIE</li>
+														<li class="fragment">Pesantren Sysadmin</li>
+														<li class="fragment">Pesantren Programmer Muslimah<span style="color:#e74c3c"> (baru!)</span></li
+													</ol>
+												</section>
+
+												<!--- 03.01 KEGIATAN PESANTREN IDN --->
+												<!-- <section>
+													<img src="">
+												</section> -->
+
+                </section>
+
+								<!--- 04 SEJARAH VMWARE --->
+                <section data-background-image="material/vmware-wallphd.png">
+                    <section>
+												<h2 id="judul-section" style="color:#34495e">Sejarah dari VMware</h2>
+										</section>
+
+
+										<!--- 04.01 1998 --->
+										<section>
+												<div class="col-md-4">
+														<div class="col-md-12">
+															<br/>
+															<h2 id="judul-section1"><u>1998</u></h2>
+														</div>
+														<div class="row">
+															<div class="col-md-12">
+																<p id="judul-section2">VMware dibuat</p>
+															</div>
+														</div>
+												</div>
+												<div class="col-md-8">
+														<img id="foto" src="material/vmware-founder-trn-sh.png" class="fragment grow">
+												</div>
+										</section>
+
+										<!--- 04.02 1999 --->
+										<section>
+											<div class="col-md-4">
+													<div class="col-md-12">
+														<br/>
+														<h2 id="judul-section1"><u>1999</u></h2>
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<p id="judul-section2">VMware diluncurkan secara resmi</p>
+														</div>
+													</div>
+											</div>
+											<div class="col-md-6">
+													<img id="foto" src="material/rocket.gif">
+											</div>
+											<div class="col-md-2">
+													<br/><br/><br/>
+													<img id="foto" src="material/workstation.png" class="fragment grow">
+											</div>
+										</section>
+
+										<!--- 04.03 2001 --->
+										<section>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="col-md-12">
+														<br/>
+														<h2 id="judul-section1"><u>2001</u></h2>
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<p id="judul-section2">VMware memasuki pasar server</p>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<table id="judul-section2" style="margin-top:100px;">
+														<tr>
+															<td>VMware GSX</td>
+														</tr>
+														<tr>
+															<td>VMware ESX now ESXi</td>
+														</tr>
+													</table>
+											</div>
+										</section>
+
+										<!--- 04.04 2008 --->
+										<section>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="col-md-12">
+														<br/>
+														<h2 id="judul-section1"><u>2008 Jul</u></h2>
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<p id="judul-section2">CFO, CEO & President dari VMware, Diane Greene di keluarkan dari jajaran direktur VMware</p>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<img id="foto" src="material/vmware-founder-trn-sh3.png" style="margin-top:60px;">
+											</div>
+										</section>
+
+										<!--- 04.05 2008 --->
+										<section>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="col-md-12">
+														<br/>
+														<h2 id="judul-section1"><u>2008 Sep</u></h2>
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<p id="judul-section2">VMware mengumumkan berkolaborasi dengan Cisco Systems</p>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<p id="judul-section2">Cisco Nexus 1000v</p>
+													<img id="foto" src="material/1000v.jpg">
+											</div>
+										</section>
+
+
+										<!--- 04.05 2008 --->
+										<section>
+											<div class="row">
+												<div class="col-md-6">
+													<div class="col-md-12">
+														<br/>
+														<h2 id="judul-section1"><br/><u>2016 Des</u></h2>
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<p id="judul-section2">Dell membeli VMware dengan harga $500 juta</p>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-6">
+													<img id="foto" src="material/dell-vmware.png">
+											</div>
+										</section>
+
+                </section>
+
+								<!-- 05 PRODUK VMWARE -->
+								<section data-background-image="material/vmware-wallphd.png">
+									<section>
+										<h2 id="judul-section" style="color:#34495e">Produk - Produk VMware</h2>
+									</section>
+
+									<section data-background-image="material/vmware-products2.png">
+										<img src="material/lingkaran.png" id="foto" style="margin-left:470px;margin-bottom:220px;width:350px;height:250px;" class="fragment">
+									</section>
+
+									<section class="paragrap" style="color:#34495e">
+										<h1 id="judul-section" style="color:#34495e">Sertifikasi</h1>
+										<div class="col-md-6">
+											<ul>
+												<li><b>SDDC</b>, Software Defined Data Center</li>
+													<ul>
+														<li class="fragment">Data Center Virtualization (<b>DCV</b>)</li>
+														<li class="fragment">Cloud Management & Automation (<b>CMA</b>)</li>
+														<li class="fragment">Network Virtualization (<b>NV</b>)</li>
+													</ul></br>
+											</ul>
+										</div>
+										<div class="col-md-6">
+											<ul>
+												<li><b>DTM</b>, Desktop Mobility</li>
+												<li style="color:red" class="fragment">udah itu doang</li>
+											</ul>
+									</div>
+									</section>
+
+									<section>
+										<h1 id="judul-section" style="color:#34495e">Sertifikasi - Role</h1>
+											<div class="col-md-2">
+												<img src="material/up.png" id="foto">
+											</div>
+											<div class="col-md-10">
+												<table id="judul-section2" style="margin-top:40px;">
+													<tr>
+														<td><b>Solution Design Architecture</b></td>
+														<td>VCDX</td>
+													</tr>
+													<tr>
+														<td><b>Implementation</b></td>
+														<td>VCIX</td>
+													</tr>
+													<tr>
+														<td><b>Administration</b></td>
+														<td>VCP</td>
+													</tr>
+													<tr>
+														<td><b>Business IT</b></td>
+														<td>VCA</td>
+													</tr>
+												</table>
+											</div>
+									</section>
+
+
+									<section data-background-image="material/vmware-certification-path.png"></section>
+
+									<section data-background-image="material/vexpert.png">
+										<img src="material/vexpert-indonesian.png" class="fragment">
+									</section>
+
+
+									<section>
+										<div class="row" style="color:#34495e">
+											<div class="col-md-6" style="margin-top:190px;">
+												<h1 id="judul-section" style="color:#34495e">vSphere</h1>
+											</div>
+											<div class="col-md-6">
+												<table class="paragrap" style="width:500px;">
+													<tr>
+														<td><strike>&nbsp;ESX </strike>, ESXi</td>
+													</tr>
+													<tr>
+														<td>vCenter</td>
+													</tr>
+													<tr>
+														<td>vSphere Client<br/>
+															<ul><li>Desktop Client</li><li>Web-Based</li></td>
+															</ul>
+														</tr>
+														<tr>
+															<td>vMotion</td>
+														</tr>
+														<tr>
+															<td>DRS / SDRS</td>
+														</tr>
+														<tr>
+															<td style="color:#95a5a6">dan lain lain..</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+									</section>
+								</section>
+
+								<!-- 06 KONSEP VIRTUALISAI -->
+								<section data-background-color="#34495e">
+									<section>
+										<h1 id="judul-section">Konsep Virtualisasi</h1>
+									</section>
+
+									<section>
+										<blockquote id="blockquote-fixed">process of creating a software-based (or virtual) representation of something rather than a physical one.</blockquote>
+										<p class="text-right" style="font-family:OpenSans"><b>VM</b>ware</p>
+									</section>
+
+									<section>
+										<blockquote id="blockquote-fixed">act of creating a virtual (rather than actual) version of something, including virtual computer hardware platforms, storage devices, and computer network resources.</blockquote>
+										<p class="text-right" style="font-family:OpenSans"><i class="fa fa-wikipedia-w" aria-hidden="true"></i>ikipedia</p>
+									</section>
+
+									<section data-background-color="#ecf0f1" data-background-image="material/virtual-version.png" data-background-size="800px"></section>
+
+									<section data-background-color="#ecf0f1" data-background-image="material/server-virtual.png" data-background-size="900px"></section>
+
+									<section data-background-color="#ecf0f1" data-background-image="material/server-virtual-virtual.png" data-background-size="700px">
+										<img src="material/host=guest.png" id="foto" class="fragment" style="width:350px;margin-top:150px;">
+									</section>
+
+									<section data-background-color="#ecf0f1" data-background-image="material/server-virtual-virtual-virtual.png" data-background-size="810px"></section>
+
+									<section>
+										<h2 id="judul-section">4 Karakteristik Penting <small style="color:white;">dari</small></br>Virtual Machine</h2>
+									</section>
+
+									<section>
+										<div class="col-md-3" style="font-size:90px;;">
+											<h1 id="judul-section">1</h1>
+										</div>
+
+										<div class="col-md-9">
+											<h3>Partisi</h3>
+											<ul>
+												<li>Menjalankan banyak sistem operasi dalam 1 PC fisik</li>
+												<li>Membagi sumber daya yang dipakai untuk virtual machine</li>
+											</ul>
+										</div>
+									</section>
+
+									<section>
+										<div class="col-md-3" style="font-size:90px;;">
+											<h1 id="judul-section">2</h1>
+										</div>
+
+										<div class="col-md-9">
+											<h3>Isolasi</h3>
+											<ul>
+												<li>Memisahkan atau mengisolasi keamanan dan <i>fault</i> pada level hardware</li>
+												<li>Menentukan kinerja VM dengan menggunakan controller sumber daya</li>
+											</ul>
+										</div>
+									</section>
+
+									<section>
+										<div class="col-md-3" style="font-size:90px;;">
+											<h1 id="judul-section">3</h1>
+										</div>
+
+										<div class="col-md-9">
+											<h3>Enkapsulasi</h3>
+											<ul>
+												<li>akan menyimpan semua <i>state</i> dalam file</li>
+												<li>Menyalin atau memindahkan VM dengan mudah</li>
+											</ul>
+										</div>
+									</section>
+
+									<section>
+										<div class="col-md-3" style="font-size:90px;;">
+											<h1 id="judul-section">4</h1>
+										</div>
+
+										<div class="col-md-9">
+											<h3>Keleluasaan Hardware</h3>
+											<ul>
+												<li>semua virtual machine dapat dipindahkan ke semua server fisik</li>
+											</ul>
+										</div>
+									</section>
+								</section>
+
+								<!-- 07 TEKNIK VIRTUALISAI -->
+								<section data-background-color="#34495e">
+									<section>
+										<h1 id="judul-section">Teknik Virtualisasi</h1>
+									</section>
+									<section>
+										<ol style="font-size:60px;">
+											<li>Full Virtualization</li>
+											<li>Para Virtualization</li>
+											<li>OS Virtualization</li>
+										</ol>
+									</section>
+
+									<section>
+												<h2 id="judul-section">Full Virtualization</h2>
+												<img src="material/full-virtualization.png" id="foto">
+									</section>
+
+									<section>
+												<h2 id="judul-section">Para Virtualization</h2>
+												<img src="material/para-virtualization.png" id="foto">
+									</section>
+
+									<section>
+												<h2 id="judul-section">OS-Level Virtualization</h2>
+												<img src="material/os-level-virtualization.png" id="foto">
+									</section>
+								</section>
+
+								<!-- 07 TIPE HYPERVISOR -->
+								<section data-background-color="#34495e">
+									<section>
+										<h1 id="judul-section">Tipe Hypervisor</h1>
+									</section>
+
+									<section>
+										<ol style="font-size:60px;">
+											<li>(<b>Hypervisor tipe 1</b>) Baremetal</li>
+											<li>(<b>Hypervisor tipe 2</b>) Hosted</li>
+										</ol>
+									</section>
+									<section>
+												<h2 id="judul-section">Hypervisor tipe 1  = Baremetal</h2>
+												<img src="material/baremetal.png" id="foto">
+									</section>
+									<section>
+												<h2 id="judul-section">Hypervisor tipe 2  = Hosted</h2>
+												<img src="material/hosted.png" id="foto">
+									</section>
+
+
+									<section>
+												<h2 id="judul-section">Baremetal - Hosted</h2>
+												<img src="material/baremetal-hosted.png" id="foto">
+									</section>
+								</section>
+
+								<section data-background-color="#ecf0f1">
+									<section data-background-image="material/07/advantages.png" data-background-size="1000px">
+										<h1 id="judul-section" style="background-color:rgba(52, 73, 94, 0.85);color:white;">Kelebihan</h1>
+									</section>
+
+									<section>
+										<div class="row">
+											<div class="col-md-6">
+												<h1 id="judul-section" style="margin-top:200px;">+ Biaya</h1>
+											</div>
+											<div class="col-md-6">
+												<img src="material/07/cost.png" id="foto">
+											</div>
+										</div>
+								</section>
+
+								<section>
+									<div class="row">
+										<div class="col-md-8">
+											<h1 id="judul-section" style="margin-top:50px;">+ Backup & Recovery</h1>
+										</div>
+										<div class="col-md-4">
+											<img src="material/07/backup.png" id="foto">
+										</div>
+									</div>
+							</section>
+
+							<section>
+								<div class="row">
+									<div class="col-md-9">
+										<h1 id="judul-section" style="margin-top:25px;">+ Deployment</h1>
+									</div>
+									<div class="col-md-3">
+										<img src="material/07/deploy.png" id="foto" style="width:300px;">
+									</div>
+								</div>
+							</section>
+
+							<section>
+								<div class="row">
+									<div class="col-md-8">
+										<h2 id="judul-section" style="margin-top:60px;">+ Penggantian<br/> Hardware</h2>
+									</div>
+									<div class="col-md-4">
+										<img src="material/07/replacement.png" id="foto">
+									</div>
+								</div>
+							</section>
+
+							<section data-background-image="material/07/downtime.gif">
+								<div class="row">
+									<div class="col-md-12">
+										<h1 id="judul-section" style="background-color:rgba(52, 73, 94, 0.85);color:white;">+ Meminimalisir<br/>Downtime</h1>
+									</div>
+								</div>
+							</section>
+
+							<section data-background-image="material/07/disadvantages.png" data-background-size="1000px">
+								<h1 id="judul-section" style="background-color:rgba(52, 73, 94, 0.85);color:white;">Kekurangan</h1>
+							</section>
+
+							<section data-transition="none">
+								<div class="row">
+									<div class="col-md-7">
+										<img id="foto" src="material/07/server-down1.png">
+									</div>
+									<div class="col-md-5">
+										<h2 id="judul-section" style="margin-top:300px;">Satu mati, ...</h2>
+									</div>
+							</section>
+
+							<section data-transition="none">
+								<div class="row">
+									<div class="col-md-7">
+										<img src="material/07/server-down2.png" id="foto">
+									</div>
+									<div class="col-md-5">
+										<h2 id="judul-section" style="margin-top:300px;">Satu mati, <br/>semua mati</h2>
+									</div>
+								</div>
+							</section>
+
+							<section data-transition="none">
+								<div class="row">
+									<div class="col-md-6">
+										<img id="foto" src="material/07/server-hacked1.png">
+									</div>
+									<div class="col-md-6">
+										<h2 id="judul-section" style="margin-top:200px;">Satu dihack, ...</h2>
+									</div>
+							</section>
+
+							<section data-transition="none">
+								<div class="row">
+									<div class="col-md-6">
+										<img src="material/07/server-hacked2.png" id="foto">
+									</div>
+									<div class="col-md-6">
+										<h2 id="judul-section" style="margin-top:200px;">Satu dihack, <br/>semua dihack</h2>
+									</div>
+								</div>
+							</section>
+						</section>
+
+							<section data-background-color="#34495e">
+								<section>
+									<h1 id="judul-section">ngga ada yang nanya kan?</h1>
+								</section>
+								<section>
+									<div class="row">
+										<h1 id="judul-section">"Mak Udah.."</h1><br/>
+										<small style="float:right; font-size:45px;margin-top:-50px;">- Bocil (6 - 10tahun)</small><br/>
+									</div>
+									<div class="row">
+										<a href="https://fauzanooor.github.io/training-vmware" class="fragment" id="judul-section" style="font-size:35px;text-decoration:none;color:white;">https://fauzanooor.github.io/training-vmware</a>
+									</div>
+								</section>
+						</section>
+
+						<section data-background-image="material/vmware-wallphd.png">
+							<section data-background-image="material/topology-training-vmware.png" data-background-size="750px">
+							</section>
+							<section>
+								<h3 id="judul-section1">Komponen yang di gunakan</h3>
+								<table style="color:#34495e">
+									<thead>
+										<tr>
+											<th>Nama Komponen</th>
+											<th>Jumlah</th>
+											<th>Keterangan</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>VMware Workstation</td>
+											<td>1</td>
+											<td>...</td>
+										</tr>
+										<tr>
+											<td style="vertical-align:middle;">VMware ESXi 6.0</td>
+											<td style="vertical-align:middle;">2</td>
+											<td><ul><li>ESXi 1 (ubuntu server & tinyXP)</li><li>ESXi 2 (kosong)</li></ul></td>
+										</tr>
+										<tr>
+											<td>VMware vCenter</td>
+											<td>1</td>
+											<td>...</td>
+										</tr>
+										<tr>
+											<td>FreeNAS</td>
+											<td>1</td>
+											<td>...</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+							<section>
+								<h3 id="judul-section1">Spesifikasi minimal tiap komponen</h3>
+								<table style="color:#34495e">
+									<thead>
+										<tr>
+											<th>Nama Komponen</th>
+											<th>CPU</th>
+											<th>RAM</th>
+											<th>HDD</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>ESXi 1 & 2</td>
+											<td>1cpu, 2cores</td>
+											<td>4GB</td>
+											<td>30GB</td>
+										</tr>
+										<tr>
+											<td>vCenter</td>
+											<td>2cpu, 1core</td>
+											<td>4GB</td>
+											<td>30GB</td>
+										</tr>
+										<tr>
+											<td>FreeNAS</td>
+											<td>1cpu, 1core</td>
+											<td>1GB</td>
+											<td>2x10GB - 30GB</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+							<section>
+								<h3 id="judul-section1">Jaringan yang digunakan</h3>
+								<table style="color:#34495e">
+									<thead>
+										<tr>
+											<th>Nama Komponen</th>
+											<th>adapter</th>
+											<th>IPv4</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>PC</td>
+											<td>VMnet 8 (NAT)</td>
+											<td>100.100.100.5/24</td>
+										</tr>
+										<tr>
+											<td>ESXi 1</td>
+											<td>VMnet 8 (NAT)</td>
+											<td>100.100.100.10/24</td>
+										</tr>
+										<tr>
+											<td>ESXi 2</td>
+											<td>VMnet 8 (NAT)</td>
+											<td>100.100.100.20/24</td>
+										</tr>
+										<tr>
+											<td>vCenter</td>
+											<td>VMnet 8 (NAT)</td>
+											<td>100.100.100.30/24</td>
+										</tr>
+										<tr>
+											<td>FreeNAS</td>
+											<td>VMnet 8 (NAT)</td>
+											<td>100.100.100.50/24</td>
+										</tr>
+									</tbody>
+								</table>
+							</section>
+							<section>
+								<h2 id="judul-section1">Rules!</h2>
+								<ol>
+									<li class="fragment paragrap2" style="font-size:60px;">Tanya</li>
+									<li class="fragment paragrap2" style="font-size:60px;">Tanya</li>
+									<li class="fragment paragrap2" style="font-size:60px;">Tanya</li>
+								</ol>
+							</section>
+
+							<section>
+								<h2 id="judul-section1">Cara Lab VMware</h2>
+								<ol>
+									<li class="fragment paragrap2" style="font-size:60px;">Click itu tu</li>
+									<li class="fragment paragrap2" style="font-size:60px;">Click ini ni</li>
+									<li class="fragment paragrap2" style="font-size:60px;">Click itu tu</li>
+								</ol>
+							</section>
+							<section>
+								<h1 id="judul-section1">Ayo Nge-LAB!!</h1>
+						</section>
+						<section>
+							<section><h1 id="judul-section">Script CPU Stress</h1>
+								<code>openssl speed -multi $(cat /proc/cpuinfo | grep processor | wc -l)</code>
+						</section>
+            </div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+		<div class="share-reveal" style="display: block; position: absolute; bottom: 16px; left: 50%; margin-left: -100px; z-index: 20;">
+			<a class="share-reveal-editor" href="http://idnfoundation.org">Pesantren SysAdmin IDN</a>
+		</div>
+</body>
+</html>
