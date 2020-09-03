@@ -1,0 +1,21 @@
+.addt-img-middle {
+    vertical-align: middle;
+    background-color:#f1f2f6;
+    border-radius: 100%;
+    padding: 10px;
+}
+
+.column-lb {
+    float: left;
+    margin: 5px;
+    background-color: #5352ed; 
+    width: 150px; 
+    height: 150px;
+    line-height: 135px;
+  }
+
+.row-lb:after {
+    content: "";
+    display: table;
+    clear: both;
+}

@@ -4,11 +4,12 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Azure Kubernetes</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="dist/theme/night.css" id="theme">
+		<link rel="stylesheet" href="dist/additional.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
@@ -16,8 +17,445 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<!--- 01. awal _-->
+				<section>
+					<img src="https://docs.microsoft.com/en-us/answers/topics/25346/icon.html?t=33459" width="170" height="170px" class="addt-img-middle">
+
+					<span style="margin-left:20px; font-size: 50px;">Azure Kubernetes</span> 
+				</section>
+
+				<!--- 02 Penjelasan sedikit-->
+				<section>
+					<section>
+						<h4>Penjelasan Sedikit dari AKS</h4>
+						<p>
+							AKS = K8s yang dikembangkan di Azure
+						</p>
+					</section>
+					<section data-auto-animate>
+						<h4>Sekilas tentang Container</h4>
+					</section>
+					<section data-auto-animate>
+						<h4 >Sekilas tentang Container</h4>
+						<img src="https://www.docker.com/sites/default/files/d8/2018-11/docker-containerized-and-vm-transparent-bg.png" style="background-color: white; border-radius: 2%;">
+					</section>
+					<section data-background-video="content/cargos.mp4" data-background-video-loop data-background-video-muted>
+						<div style="position: absolute; width: 40%; left: -100px; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+							<h4>Kubernetes</h4>
+						<p>
+							Sebuah docker orchestrator yang dibuat oleh <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1004px-Google_%22G%22_Logo.svg.png" width="40px" height="40px" style="vertical-align: middle;"> pada tahun 2015 <br/><br/>
+
+							Orchestrator : sistem otomasi untuk deployment, scaling, dan management aplikasi dari container
+						</p>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h4>Kenapa pake K8S?</h4>
+					</section>
+					<section data-auto-animate>
+						<h4>Kenapa pake K8S?</h4>
+						<ul>
+							<li>Self healing</li>
+							<li class="fragment">Automatic bin packing</li>
+							<li class="fragment">Automatic rollout & rollback</li>
+							<li class="fragment">Service discovery & load balancing</li>
+							<li class="fragment">Batch execution</li>
+							<li class="fragment">Scale out</li>
+						</ul>
+					</section>
+					
+					<section>
+						<h4>Komponen penting di K8s</h4>
+						<div class="row">
+							<div class="column">
+								<ol>
+									<li>POD</li>
+									<li>Services</li>
+									<li>Deployment atau ReplicaSet</li>
+								</ol>
+							</div>
+						
+							<div class="column">
+								<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+									apiVersion: v1
+									kind: Pod
+									metadata:
+										name: websrv
+									spec:
+										containers:
+										- image: nginx
+									....
+									apiVersion: v1
+									kind: Service
+									metadata:
+										name: 
+									spec:
+										selector:
+										app: websrv
+									...
+									apiVersion: v1
+									kind: ReplicaSet
+									metadata:
+										name: frontend
+									spec:
+										replicas: 3
+									...
+								</code></pre>
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<!--- cara kerja -->
+				<section>
+					<section data-background-image="content/k8s-works-bg1.png">
+						<div style="position: absolute; width: 30%; left: -100px; top: 250px; font-size: 40px;">
+							<h4 style="background-color: #2f3542;">K8S cara kerja</h4>
+						</div>
+					</section>
+					<section data-background-image="content/aks-works-bg1.png">
+						<div style="position: absolute; width: 30%; left: -100px; top: 250px; font-size: 40px;">
+							<h4 style="background-color: #2f3542;">AKS cara kerja</h4>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div>
+							<div style="background-color: #70a1ff; width: 950px; height: 150px; margin-bottom: 10px; line-height: 150px;" data-id="heleh"> Services / Load Balancer</div>
+							<div class="row-lb">
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+							</div>
+							<div style="position: absolute; width: 50%; left: -100px; top: -100px; font-size: 40px;"  data-id="heleh">
+								deployment : <span class="fragment strike">v1</span> <span class="fragment fade-in"><span class="fragment highlight-green"> > v2</span></span>
+							</div>
+
+							<div style="position: absolute; width: 50%; right: -100px; top: -100px; font-size: 20px;"  data-id="heleh">
+								<ul>
+									<li class="fragment">liveness</li>
+									<li class="fragment">readiness</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div>
+							<div style="background-color: #70a1ff; width: 950px; height: 150px; margin-bottom: 10px; line-height: 150px;" data-id="heleh"> Services / Load Balancer</div>
+							<div class="row-lb">
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+							</div>
+							<div class="row-lb">
+								<div class="column-lb" style="background-color: #dfe4ea; color:#2f3542" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+							</div>
+							<div style="position: absolute; width: 50%; left: -100px; top: -50px; font-size: 40px;"  data-id="heleh">
+								deployment : <del>v1</del><span style="color:#17FF2E;"> > v2</span></span>
+							</div>
+
+							<div style="position: absolute; width: 50%; right: -100px; top: -50px; font-size: 20px;"  data-id="heleh">
+								<ul>
+									<li>liveness</li>
+									<li>readiness</li>
+								</ul>
+							</div>
+
+							<div style="position: absolute; width: 20%; left: -120px; bottom: 80px; font-size: 20px; line-height: 25px; text-align: left;">
+								<span class="fragment highlight-green" data-id="heleh">✔ liveness</span><br/>
+								<span class="fragment highlight-green" data-id="heleh">✔ readiness</span>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div>
+							<div style="background-color: #70a1ff; width: 950px; height: 150px; margin-bottom: 10px; line-height: 150px;" data-id="heleh"> Services / Load Balancer</div>
+							<div class="row-lb">
+								<div class="column-lb" data-id="pod-v1" style="background-color: red; text-decoration: line-through;">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+							</div>
+							<div class="row-lb">
+								<div class="column-lb" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+							</div>
+							<div style="position: absolute; width: 50%; left: -100px; top: -50px; font-size: 40px;"  data-id="heleh">
+								deployment : <del>v1</del><span style="color:#17FF2E;"> > v2</span></span>
+							</div>
+
+							<div style="position: absolute; width: 50%; right: -100px; top: -50px; font-size: 20px;"  data-id="heleh">
+								<ul>
+									<li>liveness</li>
+									<li>readiness</li>
+								</ul>
+							</div>
+
+							<div style="position: absolute; width: 20%; left: -120px; bottom: 80px; font-size: 20px; line-height: 25px; text-align: left;">
+								<span data-id="heleh" style="color:#2ed573">✔ liveness</span><br/>
+								<span data-id="heleh" style="color:#2ed573">✔ readiness</span>
+							</div>
+							
+							<div style="position: absolute; width: 20%; left: -140px; bottom: 230px; font-size: 20px; line-height: 25px; text-align: left;" data-id="heleh">
+								<span class="fragment" style="background-color: #ced6e0; color: #2f3542;">grace periode</span>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div>
+							<div style="background-color: #70a1ff; width: 950px; height: 150px; margin-bottom: 10px; line-height: 150px;" data-id="heleh"> Services / Load Balancer</div>
+							<div class="row-lb">
+								<div class="column-lb" data-id="pod-v1" style="background-color: #ced6e0; color: #2f3542; text-decoration: line-through;">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1">pod <span style="font-size: 15px;">v1</span></div>
+							</div>
+							<div class="row-lb">
+								<div class="column-lb" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+							</div>
+							<div style="position: absolute; width: 50%; left: -100px; top: -50px; font-size: 40px;"  data-id="heleh">
+								deployment : <del>v1</del><span style="color:#17FF2E;"> > v2</span></span>
+							</div>
+
+							<div style="position: absolute; width: 50%; right: -100px; top: -50px; font-size: 20px;"  data-id="heleh">
+								<ul>
+									<li>liveness</li>
+									<li>readiness</li>
+								</ul>
+							</div>
+
+							<div style="position: absolute; width: 20%; left: -120px; bottom: 80px; font-size: 20px; line-height: 25px; text-align: left; color:#2ed573">
+								<span data-id="heleh" style="color:#2ed573">✔ liveness</span><br/>
+								<span data-id="heleh" style="color:#2ed573">✔ readiness</span>
+							</div>
+							
+							<div style="position: absolute; width: 20%; left: -140px; bottom: 230px; font-size: 20px; line-height: 25px; text-align: left;" data-id="heleh">
+								<span style="background-color: #ced6e0; color: #2f3542;">grace periode</span>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div>
+							<div style="background-color: #70a1ff; width: 950px; height: 150px; margin-bottom: 10px; line-height: 150px;" data-id="heleh"> Services / Load Balancer</div>
+							<div class="row-lb">
+								<div class="column-lb" data-id="pod-v1" style="background-color: #ced6e0; color: #2f3542; text-decoration: line-through;">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1" style="background-color: #ced6e0; color: #2f3542; text-decoration: line-through;">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1" style="background-color: #ced6e0; color: #2f3542; text-decoration: line-through;">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1" style="background-color: #ced6e0; color: #2f3542; text-decoration: line-through;">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1" style="background-color: #ced6e0; color: #2f3542; text-decoration: line-through;">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1" style="background-color: #ced6e0; color: #2f3542; text-decoration: line-through;">pod <span style="font-size: 15px;">v1</span></div>
+							</div>
+							<div class="row-lb">
+								<div class="column-lb" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+								<div class="column-lb" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+								<div class="column-lb" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+								<div class="column-lb" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+								<div class="column-lb" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+								<div class="column-lb" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+							</div>
+							<div style="position: absolute; width: 50%; left: -100px; top: -50px; font-size: 40px;"  data-id="heleh">
+								deployment : <del>v1</del><span style="color:#17FF2E;"> > v2</span></span>
+							</div>
+
+							<div style="position: absolute; width: 50%; right: -100px; top: -50px; font-size: 20px;"  data-id="heleh">
+								<ul>
+									<li>liveness</li>
+									<li>readiness</li>
+								</ul>
+							</div>
+
+							<div style="position: absolute; width: 20%; left: -120px; bottom: 80px; font-size: 20px; line-height: 25px; text-align: left; color:#2ed573">
+								<span data-id="heleh" style="color:#2ed573">✔ liveness</span><br/>
+								<span data-id="heleh" style="color:#2ed573">✔ readiness</span>
+							</div>
+							
+							<div style="position: absolute; width: 20%; left: -140px; bottom: 230px; font-size: 20px; line-height: 25px; text-align: left;" data-id="heleh">
+								<span style="background-color: #ced6e0; color: #2f3542;">grace periode</span>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div>
+							<div style="background-color: #70a1ff; width: 950px; height: 150px; margin-bottom: 10px; line-height: 150px;" data-id="heleh"> Services / Load Balancer</div>
+							<div class="row-lb">
+								<div class="column-lb" data-id="pod-v1" style="background-color: #ced6e0; color: #2f3542; text-decoration: line-through;">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1" style="background-color: #ced6e0; color: #2f3542; text-decoration: line-through;">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1" style="background-color: #ced6e0; color: #2f3542; text-decoration: line-through;">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1" style="background-color: #ced6e0; color: #2f3542; text-decoration: line-through;">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1" style="background-color: #ced6e0; color: #2f3542; text-decoration: line-through;">pod <span style="font-size: 15px;">v1</span></div>
+								<div class="column-lb" data-id="pod-v1" style="background-color: #ced6e0; color: #2f3542; text-decoration: line-through;">pod <span style="font-size: 15px;">v1</span></div>
+							</div>
+							<div class="row-lb">
+								<div class="column-lb" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+								<div class="column-lb" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+								<div class="column-lb" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+								<div class="column-lb" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+								<div class="column-lb" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+								<div class="column-lb" data-id="pod-v2">pod <span style="font-size: 15px;">v2</span></div>
+							</div>
+							<div style="position: absolute; width: 50%; left: -100px; top: -50px; font-size: 40px;"  data-id="heleh">
+								deployment : <del>v1</del><span style="color:#17FF2E;"> > v2</span></span>
+							</div>
+
+							<div style="position: absolute; width: 50%; right: -100px; top: -50px; font-size: 20px;"  data-id="heleh">
+								<ul>
+									<li>liveness</li>
+									<li>readiness</li>
+								</ul>
+							</div>
+
+							<div style="position: absolute; width: 20%; left: -120px; bottom: 80px; font-size: 20px; line-height: 25px; text-align: left;">
+								<span data-id="heleh" style="color:#2ed573">✔ liveness</span><br/>
+								<span data-id="heleh" style="color:#2ed573">✔ readiness</span>
+							</div>
+							
+							<div style="position: absolute; width: 20%; left: -140px; bottom: 230px; font-size: 20px; line-height: 25px; text-align: left;" data-id="heleh">
+								<span style="background-color: #ced6e0; color: #2f3542;">grace periode</span>
+							</div>
+							
+							<div style="position: absolute; top: 40%; left: -40px; background-color: rgb(61, 61, 61, 0.9); color: #fff; padding: 20px; width: 1000px;">
+								<h2 style="color:rgba(255, 56, 56,1.0)">Zero Downtime</h2>
+							</div>
+
+						</div>
+					</section>
+				</section>
+
+				<!-- 4. Kubernetes component-->
+				<section>
+					<section>
+						<h4>Komponen Nodes ada 2:</h4>
+						<ol>
+							<li>Master node</li>
+							<li>Worker</li>
+						</ol>
+					</section>
+					
+					<section>
+						<h4>Master Node</h4>
+						<ol>
+							<li>API Server : Jembatan penghubung semua service komponen yang ada</li>
+							<li>Scheduler : Melakukan penjadwalan ke nodes mana saja pod(s) akan ditempatkan</li>
+							<li>Controller Manager : Mengontrol replikasi, handling node failures, dll yang berhubungan dengan cluster-nya</li>
+							<li>Etcd : Menyimpan informasi key-value object dari delpoyment, pod, service</li>
+						</ol>
+					</section>
+
+					<section>
+						<h4>Worker Node</h4>
+						<ol>
+							<li>Container runtime : Engine yang jalanin container-nya (docker, rkt, cri, dll)</li>
+							<li>Kubelet : Agent yang ada di worker nodes untuk komunikasi ke K8S API nya</li>
+							<li>Kube-proxy : Untuk load balance secara network traffic nya</li>
+						</ol>
+					</section>
+
+					<section  data-auto-animate>
+						<!-- nodes -->
+						<div>
+							<div data-id="hilih" style="position: absolute; top: 0%; left:12.5%; background-color: rgba(255, 159, 26,0.9); color: #fff; width: 350px; height: 350px;">
+								<p style="transform: translate(0%, 60%);; font-size: 25px;"><b>Node</b></p>
+							</div>
+							<div data-id="hilih" style="position: absolute; top: 0%; left:50%; background-color: rgba(255, 159, 26,0.9); color: #fff; width: 350px; height: 350px;">
+								<p style="transform: translate(0%, 60%);; font-size: 25px;"><b>Node</b></p>
+							</div>
+						</div>
+
+						<!-- pods -->
+						<div>
+							<div data-id="hilih" style="position: absolute; top: 200%; left:18%; background-color: rgba(255, 175, 64, 0.9); color: #fff; width: 250px; height: 250px;">
+								<p style="transform: translate(0%, 60%);; font-size: 25px;">Pod</p>
+							</div>
+							<div data-id="hilih" style="position: absolute; top: 200%; left:55.3%; background-color: rgba(255, 175, 64, 0.9); color: #fff; width: 250px; height: 250px;">
+								<p style="transform: translate(0%, 60%);; font-size: 25px;">Pod</p>
+							</div>
+						</div>
+
+						<!-- containers -->
+						<div>
+							<div data-id="hilih" style="position: absolute; top: 450%; left:20%; background-color: rgba(75, 75, 75,1.0); color: #fff; width: 100px; height: 100px;">
+									<p style="transform: translate(0%, 60%);; font-size: 20px;">Container</p>
+							</div>
+							<div data-id="hilih" style="position: absolute; top: 450%; left:32%; background-color: rgba(75, 75, 75,1.0); color: #fff; width: 100px; height: 100px;">
+								<p style="transform: translate(0%, 60%);; font-size: 20px;">Container</p>
+							</div>
+
+							<div data-id="hilih" style="position: absolute; top: 450%; left:57%; background-color: rgba(75, 75, 75,1.0); color: #fff; width: 100px; height: 100px;">
+								<p style="transform: translate(0%, 60%);; font-size: 20px;">Container</p>
+							</div>
+							<div data-id="hilih" style="position: absolute; top: 450%; left:69.5%; background-color: rgba(75, 75, 75,1.0); color: #fff; width: 100px; height: 100px;">
+								<p style="transform: translate(0%, 60%);; font-size: 20px;">Container</p>
+							</div>
+						</div>
+					</section>
+
+					<section  data-auto-animate>
+						<!-- nodes -->
+						<div>
+							<div data-id="hilih" style="position: absolute; top: 0%; left:12.5%; background-color: rgba(255, 159, 26,0.9); color: #fff; width: 350px; height: 350px;">
+								<p style="transform: translate(0%, 60%);; font-size: 25px;"><b>Node</b></p>
+							</div>
+							<div data-id="hilih" style="position: absolute; top: 0%; left:50%; background-color: rgba(255, 159, 26,0.9); color: #fff; width: 350px; height: 350px;">
+								<p style="transform: translate(0%, 60%);; font-size: 25px;"><b>Node</b></p>
+							</div>
+						</div>
+
+						<!-- pods -->
+						<div>
+							<div data-id="hilih" style="position: absolute; top: 200%; left:18%; background-color: rgba(255, 175, 64, 0.9); color: #fff; width: 250px; height: 250px;">
+								<p style="transform: translate(0%, 60%);; font-size: 25px;">Pod</p>
+							</div>
+							<div data-id="hilih" style="position: absolute; top: 200%; left:55.3%; background-color: rgba(255, 175, 64, 0.9); color: #fff; width: 250px; height: 250px;">
+								<p style="transform: translate(0%, 60%);; font-size: 25px;">Pod</p>
+							</div>
+						</div>
+
+						<!-- containers -->
+						<div>
+							<div data-id="hilih" style="position: absolute; top: 450%; left:20%; background-color: rgba(75, 75, 75,1.0); color: #fff; width: 100px; height: 100px;">
+									<p style="transform: translate(0%, 60%);; font-size: 20px;">Container</p>
+							</div>
+							<div data-id="hilih" style="position: absolute; top: 450%; left:32%; background-color: rgba(75, 75, 75,1.0); color: #fff; width: 100px; height: 100px;">
+								<p style="transform: translate(0%, 60%);; font-size: 20px;">Container</p>
+							</div>
+
+							<div data-id="hilih" style="position: absolute; top: 450%; left:57%; background-color: rgba(75, 75, 75,1.0); color: #fff; width: 100px; height: 100px;">
+								<p style="transform: translate(0%, 60%);; font-size: 20px;">Container</p>
+							</div>
+							<div data-id="hilih" style="position: absolute; top: 450%; left:69.5%; background-color: rgba(75, 75, 75,1.0); color: #fff; width: 100px; height: 100px;">
+								<p style="transform: translate(0%, 60%);; font-size: 20px;">Container</p>
+							</div>
+						</div>
+
+						<!-- lines -->
+
+						<div style="position: absolute; top: 740%; left:30%;" class="fragment">
+							<img src="content/btwn-pods.png">
+						</div>
+
+						<div style="position: absolute; top: 660%; left:17%;">
+							<img src="content/btwn-conts.png">
+						</div>
+
+						<div style="position: absolute; top: -250%; left:20%;" class="fragment">
+							<img src="content/pods-ext.png">
+						</div>
+						
+					</section>
+				</section>
 			</div>
 		</div>
 
